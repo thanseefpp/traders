@@ -4577,11 +4577,12 @@ textarea {
   }
 }
 .banner__img-two .main-img img {
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -o-border-radius: 30px;
-  -ms-border-radius: 30px;
-  border-radius: 30px;
+  max-width: 100%;
+  height: auto;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 1199.98px) {
   .banner__img-two .main-img img {
@@ -12764,24 +12765,27 @@ textarea {
 }
 .project__thumb-two {
   position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.project__thumb-two::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
+
+.project__thumb-two img {
   width: 100%;
-  height: 100%;
-  background: var(--tg-theme-secondary);
-  pointer-events: none;
-  -webkit-transition: all 0.3s ease-out 0s;
-  -moz-transition: all 0.3s ease-out 0s;
-  -ms-transition: all 0.3s ease-out 0s;
-  -o-transition: all 0.3s ease-out 0s;
-  transition: all 0.3s ease-out 0s;
-  opacity: 0;
-  visibility: hidden;
+  height: auto;
+  transition: transform 0.1s ease;
 }
+
+.project__thumb-two:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project__thumb-two img:hover {
+  transform: scale(1.0);
+}
+
 .project__thumb-two img {
   width: 100%;
   height: 390px;
@@ -20620,6 +20624,28 @@ blockquote cite {
   -ms-border-radius: 10px;
   border-radius: 10px;
 }
+.footer__instagram ul.list-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.footer__instagram ul.list-wrap li {
+  list-style: none;
+}
+
+.footer__instagram ul.list-wrap img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.footer__instagram ul.list-wrap img:hover {
+  transform: scale(1.1);
+}
 .footer__newsletter span {
   display: block;
   margin-bottom: 20px;
@@ -20687,6 +20713,7 @@ blockquote cite {
   color: var(--tg-body-color);
   justify-content: center;
 }
+
 .footer__social .list-wrap li a svg {
   width: 16px;
   height: 16px;
